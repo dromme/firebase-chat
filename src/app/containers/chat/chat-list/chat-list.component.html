@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="row justify-content-start">
+        <div class="col-sm-4">
+        
+                <ul class="list-group">
+<!--    -->
+                    <li *ngFor="let chat of chats$ | async " class="list-group-item" (click)="openChat(chat.id)">
+                        {{chat.id}}
+                        <span class="badge badge-primary badge-pill">{{chat.count}}</span>
+                    </li>
+                </ul>
+
+
+        </div>
+        <div class="col-sm-8">
+            Aquí el componente chat
+            <ng-container *ngIf="isChatOpen">
+                <chat [chatSelected]="selectedChat"></chat>
+            </ng-container>
+
+        </div>
+
+    </div>
+</div>
+<button (click)="getChats()"> Get chats</button>

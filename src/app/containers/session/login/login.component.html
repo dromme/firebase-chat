@@ -1,0 +1,26 @@
+<nav class="navbar navbar-light bg-light">
+    <form class="form-inline">
+        <div *ngIf="auth.user$ | async; then authenticated else guest">
+        </div>
+    </form>
+</nav>
+
+
+
+<!-- User NOT logged in -->
+<ng-template #guest>
+    <h3> GUEST</h3>
+    <p>Login to get started...</p>
+    <button nz-button nzType="primary" (click)="auth.googleLogin()">
+        Connect Google
+    </button>
+</ng-template>
+
+<ng-template #authenticated>
+    <div *ngIf="auth.user$ | async as user">
+        <a>Welcome, {{ user.displayName }}</a>
+        <nz-avatar [nzSize]="64" [nzSrc]="user.photoURL"></nz-avatar>
+        <button nz-button nzType="danger" (click)="auth.signOut()">Logout</button>
+    </div>
+</ng-template>
+

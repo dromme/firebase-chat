@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyA-vBRwCeTvnO4054V8m4YQWlSP_73JQSI",
+    authDomain: "mega-chat-med.firebaseapp.com",
+    databaseURL: "https://mega-chat-med.firebaseio.com",
+    projectId: "mega-chat-med",
+    storageBucket: "mega-chat-med.appspot.com",
+    messagingSenderId: "406870791585"
+  }
 };
 
 /*
